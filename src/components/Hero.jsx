@@ -1,18 +1,10 @@
 import React from 'react';
-import { FaInstagram, FaTiktok, FaGithub, FaYoutube } from 'react-icons/fa';
 import hero from '../assets/images/hero.png'
-import CV from '../assets/CV/Yelka_CV.pdf'
+import CV from '../assets/cv/Yelka_CV.pdf'
 import { DownloadIcon, Mail } from 'lucide-react';
 
 
 const Hero = () => {
-
-    const socialIcons = [
-        { icon: 'FaInstagram', alt: 'Instagram', link: '#' },
-        { icon: 'FaTiktok', alt: 'TikTok', link: '#tiktok' },
-        { icon: 'FaGithub', alt: 'GitHub', link: '#github' },
-        { icon: 'FaYoutube', alt: 'YouTube', link: '#youtube' },
-    ]   
 
   return (
     <section id='home' className='min-h-screen flex items-center relative overflow-hidden'>
@@ -32,10 +24,10 @@ const Hero = () => {
                         className='w-full h-full object-cover rounded-full relative z-10 transform 
                         group-hover:scale-105 transition-transform duration-500' 
                     />
-                    <div claasName='absolute inset-0 border-2 border-red-500/30 rounded-full scale-110 group-hover:scale-125
+                    <div className='absolute inset-0 border-2 border-red-500/30 rounded-full scale-110 group-hover:scale-125
                     transition-transform duration-500'/>
 
-                     <div claasName='absolute inset-0 border-2 border-red-500/30 rounded-full scale-125 group-hover:scale-150
+                     <div className='absolute inset-0 border-2 border-red-500/30 rounded-full scale-125 group-hover:scale-150
                     transition-transform duration-500'/>
 
                 </div>
@@ -43,7 +35,7 @@ const Hero = () => {
             </div>
 
             <div className='lg:w-3/5 w-full flex flex-col items-center lg:items-start text-center lg:text-left'
-            data-oas='fade-left'>
+            data-aos='fade-left'>
                 <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full
                  bg-red-500/10 border border-red-500/20 mb-5'>
                     <span className='w-2 h-2 rounded-full bg-green-500 animate-pulse'/>
@@ -93,7 +85,6 @@ application usability, and reliable software solutions in fast-paced enterprise 
                     </a>
                     <a
                         href="#contact"
-                        download
                         className='w-full sm:w-auto'>
                         <button className='w-full sm:w-auto inline-flex items-center justify-center 
                         gap-2 px-8 py-3 rounded-full border-2 dark:border-red-500 border-red-600 dark:text-white

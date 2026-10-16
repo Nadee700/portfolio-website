@@ -46,7 +46,7 @@ const Skills = () => {
                     const size = 150
                     return (
                         <div
-                            Key={index}
+                            key={index}
                             className='flex flex-col items-center'
                             data-aos='fade-up'
                             data-aos-delay={index*100}>
