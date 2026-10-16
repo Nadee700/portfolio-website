@@ -1,11 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import contactImage from '../assets/images/yelka-contact.png'
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className=""
+      className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <motion.div
@@ -13,35 +14,38 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="mb-8 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-indigo-600">
-            Get In Touch
-          </p>
+          <div className="liquid-glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+            <span className="text-sm font-medium text-soft">
+              Get In Touch
+            </span>
+          </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
-            Contact Me
+          <h2 className="text-3xl font-medium text-ink sm:text-4xl lg:text-5xl">
+            Contact <span className="text-accent">Me</span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
+          <p className="mx-auto mt-4 max-w-2xl text-soft">
             Have a project in mind or want to discuss an opportunity?
-            Feel free to send me a message.
+            Feel free to email me.
           </p>
         </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid items-center gap-10 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col justify-center"
+            className="order-2 flex flex-col justify-center md:order-1"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-2xl font-medium text-ink">
               Let's work together
             </h3>
 
-            <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">
+            <p className="mt-4 leading-7 text-soft">
               I'm always happy to connect with people, discuss ideas,
               and explore opportunities to create meaningful
               digital experiences.
@@ -49,132 +53,44 @@ const Contact = () => {
 
             <div className="mt-8 space-y-5">
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-faint">
                   Email
                 </p>
                 <a
-                  href="mailto:YOUR_EMAIL@example.com"
-                  className="mt-1 inline-block font-medium text-indigo-600 hover:underline"
+                  href="mailto:yelka.nk7@gmail.com"
+                  className="mt-1 inline-block font-medium text-accent hover:underline"
                 >
-                  YOUR_EMAIL@example.com
+                  yelka.nk7@gmail.com
                 </a>
               </div>
 
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-faint">
                   Location
                 </p>
-                <p className="mt-1 font-medium text-gray-900 dark:text-white">
+                <p className="mt-1 font-medium text-ink">
                   Sri Lanka
                 </p>
               </div>
             </div>
           </motion.div>
 
-          <motion.form
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            action="https://formsubmit.co/YOUR_EMAIL@example.com"
-            method="POST"
-            className="space-y-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900 md:p-8"
+            className="order-1 flex justify-center md:order-2"
           >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Portfolio Contact Message"
-            />
-
-            <input
-              type="hidden"
-              name="_captcha"
-              value="true"
-            />
-
-            <div>
-              <label
-                htmlFor="name"
-                className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Your Name
-              </label>
-
-              <input
-                id="name"
-                type="text"
-                name="name"
-                required
-                minLength={2}
-                autoComplete="name"
-                placeholder="Enter your name"
-                className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:border-gray-700 dark:text-white"
+            <div className="relative w-full max-w-sm">
+              <div className="absolute inset-8 rounded-full bg-linear-to-r from-red-600 to-red-800 opacity-30 blur-2xl filter" />
+              <img
+                src={contactImage}
+                alt="Yelka ready to connect"
+                className="relative z-10 mx-auto h-80 w-auto object-contain sm:h-[28rem]"
               />
             </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Your Email
-              </label>
-
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                autoComplete="email"
-                placeholder="Enter your email"
-                className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:border-gray-700 dark:text-white"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="subject"
-                className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Subject
-              </label>
-
-              <input
-                id="subject"
-                type="text"
-                name="subject"
-                required
-                placeholder="Enter the subject"
-                className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:border-gray-700 dark:text-white"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Message
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                required
-                minLength={10}
-                rows={5}
-                placeholder="Write your message..."
-                className="w-full resize-y rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:border-gray-700 dark:text-white"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Send Message →
-            </button>
-          </motion.form>
+          </motion.div>
         </div>
       </div>
     </section>

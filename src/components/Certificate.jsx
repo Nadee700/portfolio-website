@@ -1,183 +1,142 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import certificateImage from '../assets/images/certificate.png';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 }
-  }
-}
+import React, { useEffect, useState } from 'react'
+import { FaLinkedin } from 'react-icons/fa'
+import certificateImage from '../assets/images/yelka-certificate.png'
+import essentialTraining from '../assets/images/react-essentical-traning.png'
+import buildingInterface from '../assets/images/building-interface.png'
+import aspnetReact from '../assets/images/aspnet-react.png'
 
 const certificates = [
   {
-    title: 'Advanced Software Engineering',
-    issuer: 'University of Westminster',
-    year: '2024',
-    image: '/images/certificates/certificate-1.png',
-    link: ''
+    title: 'React.js Essential Training',
+    issuer: 'LinkedIn',
+    issued: 'Issued Aug 2021',
+    skills: ['JavaScript', 'React Hooks', '+1 skill'],
+    image: essentialTraining,
   },
   {
-    title: 'React Development',
-    issuer: 'Certificate Provider',
-    year: '2024',
-    image: '/images/certificates/certificate-2.png',
-    link: ''
+    title: 'React.js: Building an Interface',
+    issuer: 'LinkedIn',
+    issued: 'Issued Aug 2021',
+    skills: ['JavaScript', 'React Hooks', '+1 skill'],
+    image: buildingInterface,
   },
   {
-    title: 'Cloud Computing',
-    issuer: 'Certificate Provider',
-    year: '2025',
-    image: '/images/certificates/certificate-3.png',
-    link: ''
-  }
+    title: 'Building React and ASP.NET Core Applications',
+    issuer: 'LinkedIn',
+    issued: 'Issued Jul 2021',
+    skills: ['React Hooks', 'HTML'],
+    image: aspnetReact,
+  },
 ]
 
 const Certificates = () => {
+  const [openCertificate, setOpenCertificate] = useState(null)
+
+  useEffect(() => {
+    if (!openCertificate) return undefined
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setOpenCertificate(null)
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [openCertificate])
+
   return (
-    // <section
-    //   id="certificates"
-    //   className=""
-    // >
-    //   <div className="mx-auto max-w-6xl">
-    //     <motion.div
-    //       initial={{ opacity: 0, y: 20 }}
-    //       whileInView={{ opacity: 1, y: 0 }}
-    //       viewport={{ once: true }}
-    //       transition={{ duration: 0.5 }}
-    //       className="mb-12 text-center"
-    //     >
-    //       <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-indigo-600">
-    //         My Achievements
-    //       </p>
-
-    //       <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
-    //         Certificates
-    //       </h2>
-
-    //       <p className="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
-    //         My certifications and learning achievements that reflect
-    //         my commitment to continuous growth.
-    //       </p>
-    //     </motion.div>
-
-    //     <motion.div
-    //       variants={containerVariants}
-    //       initial="hidden"
-    //       whileInView="visible"
-    //       viewport={{ once: true, amount: 0.15 }}
-    //       className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-    //     >
-    //       {certificates.map((certificate, index) => (
-    //         <motion.article
-    //           key={certificate.title}
-    //           variants={itemVariants}
-    //           className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900"
-    //         >
-    //           <div className="flex h-52 items-center justify-center bg-gray-100 p-4 dark:bg-gray-800">
-    //             <img
-    //               src={certificate.image}
-    //               alt={`${certificate.title} certificate`}
-    //               className="max-h-full max-w-full object-contain"
-    //               onError={(event) => {
-    //                 event.currentTarget.style.display = 'none'
-    //               }}
-    //             />
-
-    //             <span className="text-sm text-gray-500">
-    //               {/* Add your certificate image to the images folder */}
-    //             </span>
-    //           </div>
-
-    //           <div className="p-6">
-    //             <p className="mb-2 text-sm font-medium text-indigo-600">
-    //               {certificate.issuer}
-    //             </p>
-
-    //             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-    //               {certificate.title}
-    //             </h3>
-
-    //             <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
-    //               {certificate.year}
-    //             </p>
-
-    //             {certificate.link && (
-    //               <a
-    //                 href={certificate.link}
-    //                 target="_blank"
-    //                 rel="noreferrer"
-    //                 className="mt-5 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-800"
-    //               >
-    //                 View Certificate →
-    //               </a>
-    //             )}
-    //           </div>
-    //         </motion.article>
-    //       ))}
-    //     </motion.div>
-    //   </div>
-    // </section>
-
-          <section id='certificates'
-        className='min-h-screen flex items-center relative overflow-hidden
-        py-20'>
-            <div className='container mx-auto px-4 sm:px-8 lg:px-14'>
-                <div className='flex flex-col lg:flex-row items-center
-                gap-12 lg:gap-16'>
-                    <div
-                    className='lg:w-2/5 w-full flex justify-center'
-                    data-aos='fade-right'>
-                        <div className='relative group'>
-                            <div className='absolute inset-0
-                            bg-linear-to-r from-red-600 to-red-800 rounded-full
-                            filter blur-2xl opacity-30 group-hover:opacity-50
-                            transition-opacity duration-500' />
-                            <div className='relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96'>
-                                <img
-                                  src={certificateImage}
-                                  alt="Certificates"
-                                  className='w-full h-full object-contain relative z-10'
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='lg:w-3/5 w-full' data-aos='fade-left'>
-                        <p className='mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600 dark:text-red-300'>
-                            My Achievements
-                        </p>
-                        <h2 className='text-3xl font-bold text-gray-900 dark:text-white md:text-4xl'>
-                            Certificates
-                        </h2>
-                        <div className='mt-8 grid gap-4'>
-                            {certificates.map((certificate) => (
-                                <article
-                                    key={certificate.title}
-                                    className='rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-sm'
-                                >
-                                    <p className='text-sm text-red-600 dark:text-red-300'>{certificate.issuer}</p>
-                                    <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>{certificate.title}</h3>
-                                    <p className='text-sm text-gray-600 dark:text-gray-300'>{certificate.year}</p>
-                                </article>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+    <section id="certificates" className="relative overflow-hidden py-12 sm:py-14">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-14">
+        <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12">
+          <div className="flex w-full justify-center lg:w-2/5" data-aos="fade-right">
+            <div className="relative group">
+              <div className="absolute inset-0 rounded-full bg-linear-to-r from-red-600 to-red-800 opacity-30 blur-2xl filter transition-opacity duration-500 group-hover:opacity-50" />
+              <img
+                src={certificateImage}
+                alt="Yelka holding a certificate"
+                className="relative z-10 h-80 w-auto object-contain sm:h-96"
+              />
             </div>
-        </section>
+          </div>
 
+          <div className="w-full lg:w-3/5" data-aos="fade-left">
+            <div className="liquid-glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+              <span className="text-sm font-medium text-soft">
+                My Achievements
+              </span>
+            </div>
+            <h2 className="text-3xl font-medium text-ink sm:text-4xl lg:text-5xl">
+              My <span className="text-accent">Certificates</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-soft">
+              LinkedIn Learning courses in React, interface building, and ASP.NET Core.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {certificates.map((certificate) => (
+            <article key={certificate.title} className="glass-card h-full">
+              <div className="flex h-full gap-4 px-5 py-4">
+                <span
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0A66C2] text-xl text-white"
+                  aria-hidden="true"
+                >
+                  <FaLinkedin />
+                </span>
+                <div>
+                  <h3 className="text-lg font-medium text-ink">{certificate.title}</h3>
+                  <p className="mt-1 text-sm text-soft">{certificate.issuer}</p>
+                  <p className="mt-1 text-sm text-faint">{certificate.issued}</p>
+                  <button
+                    type="button"
+                    onClick={() => setOpenCertificate(certificate)}
+                    className="liquid-glass mt-3 rounded-full px-3 py-1 text-sm font-medium text-ink"
+                  >
+                    Show credential
+                  </button>
+                  <p className="mt-3 text-sm text-soft">
+                    <span className="text-faint">Skills: </span>
+                    {certificate.skills.join(', ')}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {openCertificate && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={openCertificate.title}
+          onClick={() => setOpenCertificate(null)}
+        >
+          <div
+            className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-2xl bg-white p-3"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-3 flex items-center justify-between gap-4 px-2">
+              <p className="font-medium text-gray-900">{openCertificate.title}</p>
+              <button
+                type="button"
+                onClick={() => setOpenCertificate(null)}
+                className="liquid-glass rounded-full px-3 py-1 text-sm font-medium text-gray-900"
+              >
+                Close
+              </button>
+            </div>
+            <img
+              src={openCertificate.image}
+              alt={`${openCertificate.title} certificate`}
+              className="w-full object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </section>
   )
 }
 

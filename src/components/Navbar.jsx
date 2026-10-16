@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaCertificate, FaCode, FaEnvelope, FaHome, FaProjectDiagram, FaUser } from 'react-icons/fa';
+import { FaCertificate, FaCode, FaEnvelope, FaGraduationCap, FaHome, FaProjectDiagram, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react';
 
@@ -11,31 +11,40 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         { name: 'Home', link: '#home', icon: FaHome},
         { name: 'About', link: '#about', icon: FaUser},
         { name: 'Skills', link: '#skills', icon: FaCode},
+        { name: 'Academics', link: '#academics', icon: FaGraduationCap},
         { name: 'Certificates', link: '#certificates', icon: FaCertificate},
         { name: 'Projects', link: '#projects', icon: FaProjectDiagram},
         { name: 'Contact', link: '#contact', icon: FaEnvelope},
     ]
   return (
+  <>
+  <header className="px-4 pt-6 sm:px-8 lg:px-14">
+    <a
+      href="#home"
+      className="mx-auto block w-fit font-display text-2xl font-medium text-ink md:mx-0"
+    >
+      Yelka<span className="text-accent">.</span>
+    </a>
+  </header>
   <div className='fixed z-50 bottom-0 left-0 right-0 flex justify-center'>
     <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className='relative w-[95%] max-w-4xl mb-4 mx-auto'
+        className='relative w-[96%] max-w-5xl mb-4 mx-auto'
     >
-        <div className='relative bg-linear-to-r from-read-600 to-red-800 backdrop-blur-xl
-        rounded-2xl border boader-white/20 px-3 py-2'>
+        <div className='liquid-glass relative rounded-[1.75rem] px-2 py-2'>
             <div className='absolute -top-5 right-3'>
                 <motion.button
                     whileHover={{ scale: 1.1 }}
-                    whileTop={{ scale: 0.9 }}
+                    whileTap={{ scale: 0.9 }}
                     onClick={toggleDarkMode}
-                    className='p-2 rounded-full bg-gray-900 dark:bg-gray-100 transition-colors
-                    backdrop-blur-sm'>
+                    aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                    className='liquid-glass rounded-full p-2 transition-colors'>
                         { darkMode ? (
-                             <Sun className='w-4 lg:w-5 h-5 lg:h-5 text-black'/>
+                             <Sun className='w-4 lg:w-5 h-5 lg:h-5 text-white'/>
                         ):(
-                            <Moon className='w-4 lg:w-5 h-5 lg:h-5 text-white'/>
+                            <Moon className='w-4 lg:w-5 h-5 lg:h-5 text-ink'/>
                         )}
                         
                 </motion.button>
@@ -56,19 +65,19 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                     {isActive && (
                                         <motion.div
                                             layoutId='activeTab'
-                                            className='absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-1 bg-white rounded-full'
+                                            className='liquid-glass absolute inset-0 rounded-2xl'
                                             transition={{ duration: 0.3 }}
                                         />
                                     )}
-                                    <Icon className={`w-5 h-5 transition-all duration-300 ${
+                                    <Icon className={`relative z-10 w-5 h-5 transition-all duration-300 ${
                                         isActive 
-                                        ? 'text-white' 
-                                        : 'text-white/70 group-hover:text-wl'
+                                        ? 'text-ink dark:text-white' 
+                                        : 'text-soft group-hover:text-ink dark:text-white/70 dark:group-hover:text-white'
                                     }`} />
-                                <span className={`text-[10px] font-medium transaction-all duration-300
+                                <span className={`relative z-10 text-[9px] sm:text-[10px] font-medium transition-all duration-300 text-center leading-tight
                                     ${isActive
-                                       ? 'text-white'
-                                        : 'text-white/60 group-hover:text-white' 
+                                       ? 'text-ink dark:text-white'
+                                        : 'text-faint group-hover:text-ink dark:text-white/60 dark:group-hover:text-white' 
                                     }`}>
                                     {item.name}
                                 </span>
@@ -79,6 +88,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             </div>
     </motion.nav>
   </div>
+  </>
   )
 }
 

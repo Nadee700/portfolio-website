@@ -6,34 +6,31 @@ const Footer = () => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/YOUR_USERNAME'
+      url: 'https://github.com/Nadee700'
     },
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/YOUR_USERNAME'
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/YOUR_USERNAME'
+      url: 'https://www.linkedin.com/in/yelkank7/'
     }
   ]
 
   const navigationLinks = [
     { label: 'Home', href: '#home' },
+    { label: 'Academics', href: '#academics' },
     { label: 'Certificates', href: '#certificates' },
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' }
   ]
 
   return (
-    <footer className="border-t ">
+    <footer className="border-t border-red-500/15 px-4 py-10 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <a
             href="#home"
-            className="text-2xl font-bold text-gray-900 dark:text-white"
+            className="font-display text-2xl font-medium text-ink"
           >
-            Portfolio<span className="text-indigo-600">.</span>
+            Yelka<span className="text-accent">.</span>
           </a>
 
           <nav
@@ -44,7 +41,7 @@ const Footer = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-gray-600 transition hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400"
+                className="text-sm text-soft transition hover:text-accent"
               >
                 {link.label}
               </a>
@@ -59,7 +56,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-indigo-600 hover:text-indigo-600 dark:border-gray-700 dark:text-gray-300 dark:hover:text-indigo-400"
+                className="liquid-glass rounded-full px-4 py-2 text-sm font-medium text-soft transition hover:text-accent"
               >
                 {social.name}
               </a>
@@ -67,14 +64,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-gray-200 pt-6 text-center dark:border-gray-800">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            © {currentYear} Your Name. All rights reserved.
+        <div className="mt-8 border-t border-red-500/15 pt-6 text-center">
+          <p className="text-sm text-faint">
+            © {currentYear} Yelka. All rights reserved.
           </p>
 
           <a
             href="#home"
-            className="mt-3 inline-block text-sm font-medium text-indigo-600 transition hover:text-indigo-800"
+            className="mt-3 inline-block text-sm font-medium text-accent transition hover:opacity-80"
           >
             Back to top ↑
           </a>
