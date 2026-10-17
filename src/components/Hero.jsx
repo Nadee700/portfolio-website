@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaTiktok, FaGithub, FaYoutube } from 'react-icons/fa';
 import hero from '../assets/images/yelka-hi.png'
+import cv from '../assets/cv/Yelka_Kariyawasam_CV.pdf'
 import { DownloadIcon, Mail } from 'lucide-react';
 
 
@@ -70,8 +71,8 @@ const Hero = () => {
                 </div>
                 <div className='flex flex-col sm:flex-row gap-4 w-full sm:w-auto'>
                     <a
-                        href="/Yelka_CV.pdf"
-                        download
+                        href={cv}
+                        download="Yelka_Kariyawasam_CV.pdf"
                         className='w-full sm:w-auto'>
                         <button className='liquid-button w-full sm:w-auto'>
                             <DownloadIcon size={18} />
