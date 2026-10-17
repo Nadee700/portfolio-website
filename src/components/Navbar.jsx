@@ -17,15 +17,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         { name: 'Contact', link: '#contact', icon: FaEnvelope},
     ]
   return (
-  <>
-  <header className="px-4 pt-6 sm:px-8 lg:px-14">
-    <a
-      href="#home"
-      className="mx-auto block w-fit font-display text-2xl font-medium text-ink md:mx-0"
-    >
-      Yelka<span className="text-accent">.</span>
-    </a>
-  </header>
   <div className='fixed z-50 bottom-0 left-0 right-0 flex justify-center'>
     <motion.nav
         initial={{ y: 100 }}
@@ -88,7 +79,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             </div>
     </motion.nav>
   </div>
-  </>
   )
 }
 
