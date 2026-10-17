@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaBehance, FaMedium } from 'react-icons/fa'
 import skillsImage from '../assets/images/yelka-skills.png'
 
 const skills = [
@@ -46,13 +47,59 @@ const Skills = () => {
               I like learning what a project needs next, and I adopt new libraries and workflows quickly when they make the product better.
             </p>
 
-            <ul className="mt-8 flex flex-wrap gap-3">
+            <ul className="mt-8 flex max-w-xl flex-wrap gap-3">
               {skills.map((skill) => (
                 <li key={skill} className="glass-card px-4 py-2 text-sm font-medium text-ink">
                   {skill}
                 </li>
               ))}
             </ul>
+
+            <a
+              href="https://www.behance.net/yelkakariyaw1/projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="liquid-glass mt-8 flex max-w-xl flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between"
+            >
+          <div className="flex items-center gap-4">
+            <span
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1769ff] text-2xl text-white"
+              aria-hidden="true"
+            >
+              <FaBehance />
+            </span>
+            <div>
+              <p className="text-lg font-medium text-ink">Behance projects</p>
+              <p className="mt-1 text-sm text-soft">
+                Interface and design work published on Behance.
+              </p>
+            </div>
+          </div>
+              <span className="text-sm font-medium text-accent">View projects</span>
+            </a>
+
+            <a
+              href="https://medium.com/@yelka.nk7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="liquid-glass mt-4 flex max-w-xl flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div className="flex items-center gap-4">
+                <span
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-black text-2xl text-white"
+                  aria-hidden="true"
+                >
+                  <FaMedium />
+                </span>
+                <div>
+                  <p className="text-lg font-medium text-ink">Medium</p>
+                  <p className="mt-1 text-sm text-soft">
+                    Writing published on Medium.
+                  </p>
+                </div>
+              </div>
+              <span className="text-sm font-medium text-accent">Read articles</span>
+            </a>
           </div>
         </div>
       </div>
