@@ -61,7 +61,7 @@ const Hero = () => {
                     {[
                         { number: '5+', label: 'Years of Experience' },
                         { number: '5+', label: 'Projects Worked on' },
-                        { number: '2+', label: 'Happy Clients' },
+                        // { number: '2+', label: 'Happy Clients' },
                     ].map((stat, index) => (
                         <div key={index} className='text-center'>
                             <div className='text-2xl font-medium text-ink'>{stat.number}</div>
