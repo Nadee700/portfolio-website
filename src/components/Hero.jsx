@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaInstagram, FaTiktok, FaGithub, FaYoutube } from 'react-icons/fa';
 import hero from '../assets/images/yelka-hi.png'
 import cv from '../assets/cv/Yelka_Kariyawasam_CV.pdf'
-import { DownloadIcon, Mail } from 'lucide-react';
+import { DownloadIcon, Eye, Mail } from 'lucide-react';
 
+let viewsPromise;
+
+function loadViewCount() {
+    if (!viewsPromise) {
+        let alreadyCounted = false;
+        try {
+            alreadyCounted = sessionStorage.getItem('yelka-view-counted') === '1';
+            if (!alreadyCounted) sessionStorage.setItem('yelka-view-counted', '1');
+        } catch {
+            alreadyCounted = false;
+        }
+
+        viewsPromise = fetch('/api/track', { method: alreadyCounted ? 'GET' : 'POST' })
+            .then((response) => (response.ok ? response.json() : Promise.reject()))
+            .then((data) => (Number.isFinite(data.count) ? data.count : null))
+            .catch(() => {
+                viewsPromise = null;
+                return null;
+            });
+    }
+
+    return viewsPromise;
+}
 
 const Hero = () => {
+    const [views, setViews] = useState(null);
+
+    useEffect(() => {
+        let active = true;
+        loadViewCount().then((value) => {
+            if (active && value !== null) setViews(value);
+        });
+        return () => {
+            active = false;
+        };
+    }, []);
 
     const socialIcons = [
         { icon: 'FaInstagram', alt: 'Instagram', link: '#' },
@@ -35,11 +69,21 @@ const Hero = () => {
 
             <div className='lg:w-3/5 w-full flex flex-col items-center lg:items-start text-center lg:text-left'
             data-aos='fade-left'>
-                <div className='liquid-glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5'>
-                    <span className='w-2 h-2 rounded-full bg-green-500 animate-pulse'/>
+                <div className='mb-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start'>
+                    <div className='liquid-glass inline-flex items-center gap-2 rounded-full px-4 py-1.5'>
+                        <span className='w-2 h-2 rounded-full bg-green-500 animate-pulse'/>
                         <span className='text-sm font-medium text-soft'>
                             Available for Work
                         </span>
+                    </div>
+                    {views !== null && (
+                        <div className='liquid-glass inline-flex items-center gap-2 rounded-full px-4 py-1.5' aria-label={`${views.toLocaleString()} ${views === 1 ? 'view' : 'views'}`}>
+                            <Eye className='h-4 w-4 text-accent' aria-hidden='true' />
+                            <span className='text-sm font-medium text-soft'>
+                                {views.toLocaleString()} {views === 1 ? 'view' : 'views'}
+                            </span>
+                        </div>
+                    )}
                 </div>
                 <h1 className='text-4xl sm:text-5xl lg:text-6xl font-medium mb-3 text-ink'>
                     Hi, I'm <span className='text-accent'>Yelka</span>
