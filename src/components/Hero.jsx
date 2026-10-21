@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaInstagram, FaTiktok, FaGithub, FaYoutube } from 'react-icons/fa';
 import hero from '../assets/images/yelka-hi.png'
-import cv from '../assets/cv/Yelka_Kariyawasam_CV.pdf'
+import cv from '../assets/cv/YelkaKariyawasam_CV.pdf'
 import { DownloadIcon, Eye, Mail } from 'lucide-react';
 
 let viewsPromise;
