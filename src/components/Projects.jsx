@@ -1,7 +1,16 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { FaGithub } from 'react-icons/fa'
 
-const projects = [
+const officeProjects = [
+  {
+    title: 'Addovation Hackathon 2026',
+    date: '2026',
+    role: 'Hackathon Team Project',
+    summary: 'Team C project created for the Addovation Hackathon 2026.',
+    technologies: ['JavaScript'],
+    githubUrl: 'https://github.com/Nadee700/Addovation-Hackathon-2026',
+  },
   {
     title: 'Addovation Change',
     date: 'April 2026',
@@ -70,13 +79,44 @@ const projects = [
   },
 ]
 
+const academicAndPersonalProjects = [
+  {
+    title: 'Smart Agriculture MSc Research',
+    role: 'Academic Research Project',
+    summary:
+      'MSc research repository for a smart agriculture project, organized with separate frontend and backend components.',
+    technologies: ['TypeScript', 'Python'],
+    githubUrl: 'https://github.com/Nadee700/msc_research_smart_agri',
+  },
+  {
+    title: 'MintyFunds',
+    role: 'Personal iOS Project',
+    summary: 'Swift-based iOS project with dedicated views and calculation modules.',
+    technologies: ['Swift', 'iOS'],
+    githubUrl: 'https://github.com/Nadee700/MintyFunds',
+  },
+  {
+    title: 'FitPulse Tracker Web App',
+    role: 'Personal Web Application',
+    summary:
+      'Fitness tracking web application with workout routine and meal-related features.',
+    technologies: ['ASP.NET MVC', 'C#'],
+    githubUrl: 'https://github.com/Nadee700/FitPulseTrackerWebApp',
+  },
+]
+
+const projectGroups = [
+  { title: 'Academic & Personal Projects', projects: academicAndPersonalProjects },
+  { title: 'Office Work', projects: officeProjects },
+]
+
 const Projects = () => {
   return (
     <section
       id="projects"
       className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-14"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,54 +136,91 @@ const Projects = () => {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-soft">
-            Product work across Outlook add-ins, document tools, and fullstack features.
+            Academic and personal projects alongside products I’ve contributed to at work.
           </p>
         </motion.div>
 
-        <div className="grid gap-6">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="glass-card p-6 md:p-8"
+        <div className="grid gap-y-6 md:grid-cols-2 md:items-start md:gap-x-6">
+          {projectGroups.map((group, groupIndex) => (
+            <section
+              key={group.title}
+              aria-label={group.title}
+              className={
+                groupIndex === 1
+                  ? 'border-t border-white/60 pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-0'
+                  : ''
+              }
             >
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="text-xl font-medium text-ink md:text-2xl">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-accent">{project.role}</p>
-                </div>
-                <p className="text-sm font-medium text-faint">{project.date}</p>
-              </div>
-
-              <p className="mt-4 max-w-3xl text-sm leading-6 text-soft md:text-base">
-                {project.summary}
-              </p>
-
-              <ul className="mt-4 space-y-2">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-2 text-sm leading-6 text-soft">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="liquid-glass rounded-full px-3 py-1 text-xs font-medium text-accent"
+              <h3 className="mb-4 text-xl font-medium text-ink sm:text-2xl">
+                {group.title}
+              </h3>
+              <div className="grid gap-3">
+                {group.projects.map((project, index) => (
+                  <motion.article
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className="glass-card p-3 sm:p-4"
                   >
-                    {technology}
-                  </span>
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h4 className="text-base font-medium text-ink sm:text-lg">
+                          {project.title}
+                        </h4>
+                        <p className="mt-1 text-xs text-accent sm:text-sm">{project.role}</p>
+                      </div>
+                      {project.date && (
+                        <p className="text-xs font-medium text-faint">{project.date}</p>
+                      )}
+                    </div>
+
+                    <p className="mt-2 text-sm leading-5 text-soft">
+                      {project.summary}
+                    </p>
+
+                    {project.highlights?.length > 0 && (
+                      <ul className="mt-2 space-y-0.5">
+                        {project.highlights.map((highlight) => (
+                          <li key={highlight} className="flex gap-2 text-xs leading-4 text-soft">
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-red-500" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                      {project.technologies?.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.technologies.map((technology) => (
+                            <span
+                              key={technology}
+                              className="liquid-glass rounded-full px-2.5 py-0.5 text-xs font-medium text-accent"
+                            >
+                              {technology}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-[#242424] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C3B4A] dark:bg-[#30363d] dark:hover:bg-[#484f58] dark:focus-visible:outline-slate-300"
+                        >
+                          <FaGithub aria-hidden="true" />
+                          View on GitHub
+                        </a>
+                      )}
+                    </div>
+                  </motion.article>
                 ))}
               </div>
-            </motion.article>
+            </section>
           ))}
         </div>
       </div>

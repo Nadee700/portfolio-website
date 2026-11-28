@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <div className={
-      darkMode ? `bg-linear-to-br from-red-800 via-red-700 to-red-600 min-h-screen pb-28`
+      darkMode ? `bg-linear-to-br from-slate-950 via-slate-900 to-slate-800 min-h-screen pb-28`
       : `bg-linear-to-br from-red-50 via-red-100 to-red-200 min-h-screen pb-28`
     }>
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>

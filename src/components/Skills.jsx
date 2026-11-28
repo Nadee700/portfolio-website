@@ -12,6 +12,11 @@ const skills = [
   'Bootstrap',
   'Styled Components',
   'Fluent UI',
+  'Agentic AI',
+  'GenAI',
+  'LLM',
+  'RAG',
+  'LangChain',
 ]
 
 const Skills = () => {

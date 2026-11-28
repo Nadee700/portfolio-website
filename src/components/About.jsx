@@ -37,13 +37,13 @@ const About = () => {
         </div>
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-medium mb-6 text-ink leading-tight'>
             Turning Ideas Into 
-            <span className='text-accent block'> Digital Reality</span>
+            <span className='text-accent block'>Digital Reality</span>
             </h2>
             <p className='mb-4 max-w-xl text-base leading-relaxed text-soft lg:text-lg'>
-                I build interfaces that stay clear when the product gets complicated. For more than five years I have worked on enterprise add-ins and web applications, shaping reusable React components, responsive layouts, and flows people can trust.
+                I’m driven by curiosity, creativity, and a passion for turning ideas into impactful digital experiences. My journey in software engineering has been shaped by continuous learning, hands-on experience, and a desire to explore what technology can achieve.
             </p>
             <p className='mb-6 max-w-xl text-base leading-relaxed text-soft lg:text-lg'>
-                I care about maintainable structure, careful UI detail, and shipping work that feels finished on every screen.
+                Through my academic journey, from my BSc to my MSc in Advanced Software Engineering, I have developed a strong interest in emerging technologies, particularly Generative AI and Agentic AI, exploring their potential to transform the way we build and interact with software. I’m always eager to embrace new challenges, expand my knowledge, and explore innovative ways to bridge the gap between technology and real-world needs.
             </p>
             <div className='flex gap-4 mb-8'>
                 {socialLinks.map((social, index) => {

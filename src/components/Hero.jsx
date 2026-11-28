@@ -118,7 +118,7 @@ const Hero = () => {
                         href={cv}
                         download="Yelka_CV.pdf"
                         className='w-full sm:w-auto'>
-                        <button className='liquid-button w-full sm:w-auto'>
+                        <button className='inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7D3443] px-8 py-3 font-semibold text-white transition-colors hover:bg-[#682A38] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7D3443] dark:bg-sky-800 dark:hover:bg-sky-700 dark:focus-visible:outline-sky-300 sm:w-auto'>
                             <DownloadIcon size={18} />
                             Download CV
                         </button>

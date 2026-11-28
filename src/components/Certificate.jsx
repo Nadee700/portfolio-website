@@ -129,7 +129,7 @@ const Certificates = () => {
                   <button
                     type="button"
                     onClick={() => setOpenCertificate(certificate)}
-                    className="mt-auto w-full rounded-lg bg-[#8C3B4A] px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#762D3B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C3B4A]"
+                    className="mt-auto w-full rounded-lg bg-[#7D3443] px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#682A38] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7D3443] dark:bg-sky-800 dark:hover:bg-sky-700 dark:focus-visible:outline-sky-300"
                   >
                     Show credential
                   </button>
@@ -149,15 +149,15 @@ const Certificates = () => {
           onClick={() => setOpenCertificate(null)}
         >
           <div
-            className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-2xl bg-white p-3"
+            className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-2xl bg-white p-3 dark:bg-slate-800"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-3 flex items-center justify-between gap-4 px-2">
-              <p className="font-medium text-gray-900">{openCertificate.title}</p>
+              <p className="font-medium text-gray-900 dark:text-slate-100">{openCertificate.title}</p>
               <button
                 type="button"
                 onClick={() => setOpenCertificate(null)}
-                className="liquid-glass rounded-full px-3 py-1 text-sm font-medium text-gray-900"
+                className="liquid-glass rounded-full px-3 py-1 text-sm font-medium text-gray-900 dark:text-slate-100"
               >
                 Close
               </button>
