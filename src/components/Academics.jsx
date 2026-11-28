@@ -52,8 +52,13 @@ const Academics = () => {
 
             <div className="mt-8 grid gap-4">
               {academics.map((item) => (
+<<<<<<< HEAD
                 <article key={item.institution} className="glass-card flex min-h-[7.5rem] items-center gap-3 px-4 py-3">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5">
+=======
+                <article key={item.institution} className="glass-card flex min-h-[10.5rem] items-center gap-4 px-5 py-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5">
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
                     <img
                       src={item.logo}
                       alt={`${item.institution} logo`}

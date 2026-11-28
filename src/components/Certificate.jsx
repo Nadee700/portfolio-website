@@ -4,6 +4,7 @@ import certificateImage from '../assets/images/yelka-certificate.png'
 import essentialTraining from '../assets/images/react-essentical-traning.png'
 import buildingInterface from '../assets/images/building-interface.png'
 import aspnetReact from '../assets/images/aspnet-react.png'
+<<<<<<< HEAD
 import oracleAgenticAi from '../assets/images/oracle-agentic-ai-certificate.png'
 import oracleBadge from '../assets/images/oracle-agentic-ai-badge.jpg'
 
@@ -17,6 +18,11 @@ const certificates = [
     image: oracleAgenticAi,
   },
   {
+=======
+
+const certificates = [
+  {
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
     title: 'React.js Essential Training',
     issuer: 'LinkedIn',
     issued: 'Issued Aug 2021',
@@ -79,6 +85,7 @@ const Certificates = () => {
               My <span className="text-accent">Certificates</span>
             </h2>
             <p className="mt-4 max-w-xl text-soft">
+<<<<<<< HEAD
               An Oracle Agentic AI credential and LinkedIn Learning courses in React,
               interface building, and ASP.NET Core.
             </p>
@@ -137,6 +144,42 @@ const Certificates = () => {
               ))}
             </div>
           </div>
+=======
+              LinkedIn Learning courses in React, interface building, and ASP.NET Core.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {certificates.map((certificate) => (
+            <article key={certificate.title} className="glass-card h-full">
+              <div className="flex h-full gap-4 px-5 py-4">
+                <span
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0A66C2] text-xl text-white"
+                  aria-hidden="true"
+                >
+                  <FaLinkedin />
+                </span>
+                <div>
+                  <h3 className="text-lg font-medium text-ink">{certificate.title}</h3>
+                  <p className="mt-1 text-sm text-soft">{certificate.issuer}</p>
+                  <p className="mt-1 text-sm text-faint">{certificate.issued}</p>
+                  <button
+                    type="button"
+                    onClick={() => setOpenCertificate(certificate)}
+                    className="liquid-glass mt-3 rounded-full px-3 py-1 text-sm font-medium text-ink"
+                  >
+                    Show credential
+                  </button>
+                  <p className="mt-3 text-sm text-soft">
+                    <span className="text-faint">Skills: </span>
+                    {certificate.skills.join(', ')}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
         </div>
       </div>
 

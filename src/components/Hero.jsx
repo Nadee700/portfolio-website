@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FaInstagram, FaTiktok, FaGithub, FaYoutube } from 'react-icons/fa';
 import hero from '../assets/images/yelka-hi.png'
+<<<<<<< HEAD
 import cv from '../assets/cv/Yelka_CV.pdf'
+=======
+import cv from '../assets/cv/YelkaKariyawasam_CV.pdf'
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
 import { DownloadIcon, Eye, Mail } from 'lucide-react';
 
 let viewsPromise;
@@ -96,10 +100,17 @@ const Hero = () => {
                     </span>
                 </h2>
                 <p className='mb-4 max-w-xl leading-relaxed text-soft lg:max-w-2xl'>
+<<<<<<< HEAD
                     Software Engineer with 5+ years of experience developing enterprise applications, modern web solutions, and Microsoft Office add-ins. My frontend and full-stack toolkit includes <span className='font-medium text-accent'>React.js, JavaScript, HTML5, CSS, Redux, Node.js, Bootstrap, Styled Components, and Fluent UI</span>, alongside <span className='font-medium text-accent'>C#, .NET Core, and REST API integrations</span>.
                 </p>
                 <p className='mb-6 max-w-xl leading-relaxed text-soft lg:max-w-2xl'>
                     Experienced in <span className='font-medium text-accent'>Generative AI, LLM integrations, prompt engineering, and AI-powered application development</span>, with knowledge of <span className='font-medium text-accent'>Agentic AI, MCP, and AI-assisted development tools</span>. <span className='font-medium text-accent'>Oracle Agentic AI Certified Foundations Associate</span>, passionate about emerging technologies and building intelligent, user-friendly software solutions.
+=======
+                    Software Engineer with 5+ years of experience specializing in frontend development, enterprise applications, and UI/UX, with strong domain expertise in developing business-critical enterprise add-ins and web applications.
+                </p>
+                <p className='mb-6 max-w-xl leading-relaxed text-soft lg:max-w-2xl'>
+                    Experienced in building responsive, scalable, and user-friendly solutions using ReactJS, React Hooks, Redux, Fluent UI, Bootstrap, and Styled Components. Proven ability to develop reusable UI components, implement complex application features, and deliver consistent experiences across devices. Strong focus on clean, maintainable architecture, responsive design, application usability, and reliable software solutions in fast-paced enterprise environments.
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
                 </p>
                 <div className='flex gap-8 mb-7'>
                     {[
@@ -116,7 +127,11 @@ const Hero = () => {
                 <div className='flex flex-col sm:flex-row gap-4 w-full sm:w-auto'>
                     <a
                         href={cv}
+<<<<<<< HEAD
                         download="Yelka_CV.pdf"
+=======
+                        download="Yelka_Kariyawasam_CV.pdf"
+>>>>>>> 1522584e78d6dade0650ab9f10d4a77190fb14b0
                         className='w-full sm:w-auto'>
                         <button className='liquid-button w-full sm:w-auto'>
                             <DownloadIcon size={18} />
